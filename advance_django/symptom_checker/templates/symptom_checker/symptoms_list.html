@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style media="screen">
+      body{
+        background-color:#1D1E20;
+        color:white;
+        font-size:18px;
+      }
+      li{
+        font-size: 19px
+      }
+      form{
+        border-top:8px solid white ;
+      }
+      .btn{
+       background:#0F8BE1;
+       color:white;
+       border: 1px solid #0F8BE1;
+       border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <ul class="nav navbar-nav">
+        <li> <a class="navbar-link" href="{% url 'index' %}">Home</a> </li>
+        <li> <a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+        <li>
+          <form class="form-inline" method='post'>
+            {% csrf_token %}
+            {{form}}
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </li>
+      <h4 class='navbar-text'>Hello {{user_name}} !</h4>
+      </ul>
+    </nav>
+    <div class="container">
+    <h1>Here is the list of all symptoms!</h1>
+      <ol>
+        {% for symptom in symptoms %}
+        <h3><li color=white><a href="{{symptom.id}}">{{symptom.name}}</a></li></h3>
+        {% endfor %}
+      </ol>
+    </div>
+  </body>
+</html>

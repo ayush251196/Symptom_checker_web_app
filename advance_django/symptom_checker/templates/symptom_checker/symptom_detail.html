@@ -1,0 +1,28 @@
+{% extends "symptom_checker/symptom_app_base.html" %}
+{% block body_block %}
+<div id="jumbo" class="jumbotron">
+  <h1 align=center>Welcome to the Symptom Detail Page</h1>
+  <h2 align=center>Here is the list of all the issues that match your symptom.Please be patient!</h2>
+</div>
+<div class="jumbotron">
+  <ol>
+    {% for x in issues %}
+      <li><h3><strong>{{x.name}}</strong></h3></li>
+      <ul>
+        <li><h3>Short discription:</strong></h3>{{x.short_description}}</li>
+        <li><h3>Related Symptoms:</strong></h3>{{x.related_symptoms}}</li>
+        <li><h3>Medical Condition:</h3>{{x.medical_condition}}</li>
+        <li><h3>Treatment Description(Self Care, Medications,Medical Procedures):</h3>{{x.treatement_description}}</li>
+        <li><h3>Related Specialisations:</h3>
+          <ul>
+
+            {%for specialisations in map|get_item:x.issue_id %}
+              <li>{{specialisations}}</li>
+              {%endfor%}
+          </ul>
+        </h3>
+      </ul>
+      {% endfor%}
+  </ol>
+</div>
+{% endblock%}

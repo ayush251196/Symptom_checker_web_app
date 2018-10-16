@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "symptom_checker/base.html" %}
+{% block body_block%}
+
+  <div id="jumbo" class="jumbotron jumbotron-fluid" align=center>
+    <h1>WELCOME TO SYMPTOM CHECKER!<h1>
+      <p></p>
+      <h2>Fill on the details below to proceed to the Symptoms Page.</h2>
+  </div>
+<div>
+<div class="container">
+    <form  id="foo" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary" value="Save and Proceed">
+    </form>
+
+{% endblock %}
