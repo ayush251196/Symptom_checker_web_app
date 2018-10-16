@@ -8,5 +8,7 @@ valuable information related to the selected symptom like **Suggested Issues** ;
 same symptom that he had previously selected then instead of requesting the API again , data is fetched directly from the database.
 The app grabs the data related to the symptoms  using services provided by **ApiMedic** API.
 
+**A permanent internet connectivity is required to run the app. 
+HTML files in the project include cached version of Bootstrap’s compiled CSS and JS.***
 
 
